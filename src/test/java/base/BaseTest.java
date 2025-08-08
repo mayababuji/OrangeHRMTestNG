@@ -1,4 +1,21 @@
 package base;
+/*TestNG starts test method
+				↓
+@BeforeMethod in BaseTest
+				↓
+Creates new WebDriver instance → stores in ThreadLocal
+				↓
+Test method runs
+- getDriver() returns current thread’s driver
+- Page objects get this driver via constructor
+- All interactions use this driver instance
+				↓
+@AfterMethod in BaseTest
+				↓
+Quits driver and removes from ThreadLocal
+				↓
+Next test method repeats the cycle*/
+
 
 import org.testng.annotations.AfterMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -12,6 +29,7 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
+    //@BeforeSuite
     public void setup(@Optional("chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -30,6 +48,8 @@ public class BaseTest {
     }
 
     @AfterMethod
+    //@AfterSuite
+    
 
     public void tearDown() {
         getDriver().quit();

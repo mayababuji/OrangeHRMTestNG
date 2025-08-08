@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="LoginSuite">
-  <test thread-count="5" name="Test">
-  <parameter name="browser" value="chrome"/>
+<suite name="ORANGEHRM" parallel="false" thread-count="2">
+ <test name="LoginTestChrome">
+    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="tests.LoginTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test>
+
+  <test name="AddEmployeeTestChrome">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="tests.AddEmployeeTest"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->
