@@ -2,6 +2,8 @@ package tests;
 
 import org.testng.annotations.Test;
 import base.BaseTest;
+//import pageTests.DataProviderClass;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import pages.LoginPage;
@@ -9,13 +11,9 @@ import utils.ExcelReader;
 
 public class LoginTest extends BaseTest {
 
-    @DataProvider(name = "LoginData")
-    public Object[][] loginData() {
-        return ExcelReader.getData("/Users/maya/eclipse-workspace/OrangeHRMTestNG/src/test/resources/LoginData.xlsx", "Sheet1");
-    }
 
-    @Test(dataProvider = "LoginData")
-    public void testLogin(String username, String password, String expectedError, String errorType) {
+    @Test(dataProvider = "LoginData", dataProviderClass = DataProviderClass.class)
+    public void testLogin(String username, String password, String expectedError, String errorType, String testType) {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.login(username, password);
 

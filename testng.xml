@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="ORANGEHRM" parallel="false" thread-count="2">
- <test name="LoginTestChrome">
+<test name="LoginTestChrome">
     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="tests.LoginTest"/>
@@ -12,6 +12,13 @@
     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="tests.AddEmployeeTest"/>
+    </classes>
+  </test>
+  
+   <test name="RegisterEmpAsAdminChrome">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="tests.RegisterEmployeeAsAdminTest"/>
     </classes>
   </test>
 </suite> <!-- Suite -->
