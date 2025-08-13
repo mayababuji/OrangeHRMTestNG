@@ -20,5 +20,13 @@
     <classes>
       <class name="tests.RegisterEmployeeAsAdminTest"/>
     </classes>
+    
+    
+  </test>
+   <test name="UpdateNewEmployessChrome">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="tests.UpdateEmployeeDetailsTest"/>
+    </classes>
   </test>
 </suite> <!-- Suite -->

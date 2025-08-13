@@ -47,5 +47,9 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(inlineErrors));
         return driver.findElement(inlineErrors).getText();
     }
+    
+    public void waitForExpectedUrl(String expectedUrlString) {
+    	wait.until(ExpectedConditions.urlContains(expectedUrlString));
+    }
 
 }

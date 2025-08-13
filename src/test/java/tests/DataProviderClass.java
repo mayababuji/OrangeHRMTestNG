@@ -31,6 +31,23 @@ public class DataProviderClass {
 	  public Object[][] registerUserAsAdmin(){
 		  return ExcelReader.getData("/Users/maya/eclipse-workspace/OrangeHRMTestNG/src/test/resources/LoginData.xlsx", "Sheet3");
 	  }
+	  @DataProvider(name="LoginAsNewEmployee")
+	  public Object [][] loginAsNewEmp(){
+		  Object[][] newEmpCreds = registerUserAsAdmin();
+		  Object[][] data = new Object[newEmpCreds.length][2];
+		  for (int i = 0; i < newEmpCreds.length; i++) {
+		        data[i][0] = newEmpCreds[i][1].toString(); // username
+		        data[i][1] = newEmpCreds[i][2].toString(); // password
+		    }
+		    return data;
+		}
+	  @DataProvider(name="UpdateEmpPersonalDetails")
+	  public Object[][] updateNewEmpPersonalDetails(){
+		  return ExcelReader.getData("/Users/maya/eclipse-workspace/OrangeHRMTestNG/src/test/resources/LoginData.xlsx", "Sheet4");
+	  }
+	
+		  
+	  
 	  
 	  public Map<String, String> getCredentialsByType(String type) {
 	        Object[][] creds = loginData();
@@ -47,22 +64,61 @@ public class DataProviderClass {
 	        return null; // or throw exception if not found
 	    }
 	  
+	  public Map<String,String> getNewEmpCredentials(){
+		  Object[][] newEmpCreds = registerUserAsAdmin();
+		  for(Object[] row:newEmpCreds) {
+			  Map<String,String> mapEmpLoginValues = new HashMap<>();
+			  System.out.println(row[0].toString());
+			  mapEmpLoginValues.put("NewEmpUsername", row[1].toString());
+			  mapEmpLoginValues.put("NewEmpPassword", row[2].toString());
+			  System.out.println(mapEmpLoginValues);
+			  return mapEmpLoginValues;
+			  
+			  
+		  }
+		return null;
+	  }
+	  
 	  public static void main(String[] args) {
 		  DataProviderClass obj = new DataProviderClass();
-Object[][] employeeDetails = obj.registerUserAsAdmin();
-	  System.out.println(employeeDetails);
-	  for (Object[] row:employeeDetails) {
-		  for(Object cell:row) {
-			  System.out.println(cell+"\t");
-		  }
-		  System.out.println();
-	  }
+//Object[][] employeeDetails = obj.registerUserAsAdmin();
+//	  System.out.println(employeeDetails);
+//	  for (Object[] row:employeeDetails) {
+//		  for(Object cell:row) {
+//			  System.out.println(cell+"\t");
+//		  }
+//		  System.out.println();
+//	  }
+		  
+		  
 //		  Map<String, String> creds = obj.getCredentialsByType("Valid");
 //		  String username = creds.get("Username");
 //	        String password = creds.get("Password");
 //	        System.out.println(username);
 //	        System.out.println(password);
-	        
+		  
+//		Object[][] loginAsNewEmpusername = obj.loginAsNewEmp();
+//		  System.out.println(loginAsNewEmpusername);
+//		  for (Object[] row:loginAsNewEmpusername) {
+//			  for(Object cell:row) {
+//				  System.out.println(cell+"\t");
+//			  }
+//			  System.out.println();
+//		  }
+//		  Map<String,String> empCreds = obj.getNewEmpCredentials();
+//		  String empusername = empCreds.get("NewEmpUsername");
+//		  String emppassword = empCreds.get("NewEmpPassword");
+//		  System.out.println(empusername);
+//		  System.out.println(emppassword);
+		  
+//		Object[][] employeeDetails = obj.updateNewEmpPersonalDetails();
+//		  System.out.println(employeeDetails);
+//		  for (Object[] row:employeeDetails) {
+//			  for(Object cell:row) {
+//				  System.out.println(cell+"\t");
+//			  }
+//			  System.out.println();
+//		  }
 		  
 	}
 }

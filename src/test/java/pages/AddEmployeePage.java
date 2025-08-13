@@ -16,7 +16,7 @@ public class AddEmployeePage {
 	    public AddEmployeePage( WebDriver driver) {
 //	    	/// Assign the parameter to the class field
 	    	 this.driver = driver;
-	         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	         this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 	    }
 private By PIM = By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name'][normalize-space()='PIM']");
 private By addEmployee=By.xpath("//a[normalize-space()='Add Employee']");
