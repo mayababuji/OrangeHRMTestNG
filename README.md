@@ -1,5 +1,3 @@
-Perfect! Here’s a **more visual and professional README** for your OrangeHRM Test Automation suite, ready for GitHub. I’ve added badges, a table for test coverage, and placeholders for screenshots. You can replace the placeholder links with actual URLs/screenshots later.
-
 ---
 
 # OrangeHRM Test Automation Suite
@@ -48,8 +46,7 @@ The suite covers major HRM functionalities including employee management, admin 
 
 * Java 23 or later
 * Maven 4.x
-* Chrome browser (compatible with Selenium WebDriver)
-* IDE: Eclipse / IntelliJ IDEA (optional)
+* IDE: Eclipse
 
 ---
 
@@ -100,7 +97,7 @@ OrangeHRMTestNG/
 * **LoggerLoad** logs debug and info messages for every step.
 * **Allure Reports** visualize test execution with stories, features, and steps.
 * **Retry Analyzer** automatically reruns failed tests to reduce flakiness.
-* Screenshots are automatically captured for failed steps.
+* **Screenshots** are automatically captured for failed steps.
 
 ---
 ### Allure report
